@@ -3,6 +3,7 @@
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
+    
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -17,4 +18,26 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.nav {
+    color: white;
+}
+
+.information-form {
+    background-color: white;
+}
+
+.text-primary {
+    color: #16A34A;
+}
+
+.btn-primary {
+    background-color: #16A34A ;
+}
+.fw-bold {
+    color: #16A34A;
+}
+.form-label {
+    color: #16A34A;
 }
