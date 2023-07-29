@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-
 namespace AUST_BUDDY_WEB.Controllers
 {
 	public class HomeController : Controller
@@ -23,11 +22,7 @@ namespace AUST_BUDDY_WEB.Controllers
 			return View();
 		}
 
-		public ActionResult Course()
-		{
-			ViewBag.Message = "Your course page.";
-			return View();
-		}
+
 
 		public ActionResult Announcement()
 		{

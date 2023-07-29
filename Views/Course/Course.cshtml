@@ -1,0 +1,32 @@
+﻿@{ ViewBag.Title = "About"; } 
+@model IEnumerable<AUST_BUDDY_WEB.Models.Course>
+
+<h2>3 rd Year 1st Semester</h2>
+<h2 id="title">@ViewBag.Title</h2>
+
+    	<a href="@Url.Action("AddCourse", "Home")" class="btn btn-primary btn-lg btn-block">Add Course</a>
+
+      <section>
+    <div class="container" >
+      <div class="row justify-content-center">
+
+@foreach (var course in Model)
+{
+   
+
+         <div class="card course-card" style="width: 18rem;">
+        <img class ="course-icon card-img-top" src="/Image/ic-course.png"  alt="...">
+  <div class="card-body">
+     <h5 class="card-title">@course.CourseName</h5>
+    <p class="card-text">Code: @course.CourseCode</p>
+    <a href="@course.DriveLink" class="btn btn-primary">Explore</a>
+  </div>
+</div>
+}
+
+            </div>
+    </div>
+  </section>
+
+
+
