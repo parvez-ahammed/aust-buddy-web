@@ -6,7 +6,7 @@
 
 body {
     background-color: #DCFCE7;
-    background-image: url('https://raw.githubusercontent.com/piru72/AUST-BUDDY-WEB/master/Images/handshake%20(1)%202.png?token=GHSAT0AAAAAACCTNOV4KWSWCW2SO5UVN37QZGCPLAQ');
+    background-image: url('https://raw.githubusercontent.com/piru72/AUST-BUDDY-WEB/master/Images/handshake%20(1)%202.png?token=GHSAT0AAAAAACCTNOV57KVSFQ7AI7NXHGSSZGE7HHA');
     background-repeat: repeat; /* Image will be repeated in both directions */
     background-size: 9rem;
     background-position: 20px 20px;
@@ -223,4 +223,10 @@ a {
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 
+
+/* Add styling for the border */
+.form-outline {
+    border: 2px solid #16A34A; /* Change the color and size as needed */
+    padding: 10px; /* Optional: Add padding to create some space between the border and the content */
+}
 
