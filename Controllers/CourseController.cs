@@ -55,6 +55,15 @@ namespace AUST_BUDDY_WEB.Controllers
 			return View(courseDataList);
 		}
 
+		public ActionResult Add()
+		{
+			return View();
+		}
+		public ActionResult Choose()
+		{
+			return View();
+		}
+
 
 
 	}

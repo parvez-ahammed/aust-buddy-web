@@ -411,13 +411,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\AddCourse.cshtml" />
+    <Content Include="Views\Course\Add.cshtml" />
     <Content Include="Views\Home\AddTeacher.cshtml" />
     <Content Include="Views\Home\Announcements.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Authentication\Registration.cshtml" />
     <Content Include="Views\Course\Course.cshtml" />
     <Content Include="Views\Home\AddAnnouncement.cshtml" />
+    <Content Include="Views\Course\Choose.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
