@@ -48,10 +48,10 @@ namespace AUST_BUDDY_WEB.Controllers
 
 		public ActionResult Course()
 		{
-			// Assuming you have retrieved the data from Firebase and stored it in a List<CourseModel>
+
 			List<Course> courseDataList = GetCourseDataFromFirebase();
 
-			// Pass the data to the view
+
 			return View(courseDataList);
 		}
 

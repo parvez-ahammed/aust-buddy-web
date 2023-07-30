@@ -262,7 +262,7 @@ a {
         font-size: 18px;
         text-align: center;
         overflow: hidden;
-        white-space: nowrap; /* Prevents text wrapping */
+        white-space: pre-wrap; /* Prevents text wrapping */
     }
 }
 
@@ -279,6 +279,8 @@ a {
         margin: 1rem;
         font-size: 12px;
         text-align: center;
+        overflow: hidden;
+        white-space: pre-wrap; /* Prevents text wrapping */
     }
 }
 
@@ -293,5 +295,7 @@ a {
         padding: 10px;
         font-size: 7px;
         text-align: center;
+        overflow: hidden;
+        white-space: pre-wrap; /* Prevents text wrapping */
     }
 }

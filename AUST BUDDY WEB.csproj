@@ -351,13 +351,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -413,11 +414,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Course\Add.cshtml" />
     <Content Include="Views\Home\AddTeacher.cshtml" />
-    <Content Include="Views\Home\Announcements.cshtml" />
+    <Content Include="Views\Announcement\Announcement.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Authentication\Registration.cshtml" />
     <Content Include="Views\Course\Course.cshtml" />
-    <Content Include="Views\Home\AddAnnouncement.cshtml" />
+    <Content Include="Views\Announcement\Add.cshtml" />
     <Content Include="Views\Course\Choose.cshtml" />
   </ItemGroup>
   <ItemGroup>
