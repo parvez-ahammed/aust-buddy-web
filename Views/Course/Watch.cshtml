@@ -1,0 +1,18 @@
+﻿
+@model AUST_BUDDY_WEB.Models.VideoModel
+
+@{
+    ViewBag.Title = "Course";
+}
+
+<h1 class="display-5 fw-bold">Software Devlopment</h1>
+
+@foreach (var videoTitle in Model.VideoTitles)
+{
+    var videoIndex = Model.VideoTitles.IndexOf(videoTitle);
+    <section style="margin:5%">
+    <h2>@videoTitle</h2>
+    
+    <div class ="video-container">@Html.Raw(Model.VideoEmbeds[videoIndex])</div>
+    </section>
+}
