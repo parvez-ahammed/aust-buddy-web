@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using AUST_BUDDY_WEB.Models;
+using System.Web.Mvc;
 
 namespace AUST_BUDDY_WEB.Controllers
 {
@@ -17,6 +18,13 @@ namespace AUST_BUDDY_WEB.Controllers
 		}
 
 		public ActionResult Registration()
+		{
+			ViewBag.Message = "Your Registration page.";
+			return View();
+		}
+
+		[HttpPost]
+		public ActionResult Registration(UserAll model)
 		{
 			ViewBag.Message = "Your Registration page.";
 			return View();
