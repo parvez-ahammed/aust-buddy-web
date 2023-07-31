@@ -1,17 +1,24 @@
-﻿@{ ViewBag.Title = "Course"; } @model IEnumerable <AUST_BUDDY_WEB.Models.Course>
-  <a href="@Url.Action("Choose", "Course" )" class="btn btn-primary btn-lg btn-block">Choose Semester</a>
+﻿@{ ViewBag.Title = "Course"; } 
+
+
+@model IEnumerable <AUST_BUDDY_WEB.Models.Course>
+ 
   <a href="@Url.Action("Add", "Course" )" class="btn btn-primary btn-lg btn-block">Add Course</a>
-  <section>
+    <a href="@Url.Action("Playlists", "Course" )" class="btn btn-primary btn-lg btn-block">View Playlists</a>
+
+
+    <section>
     <div class="container">
-      <div class="row justify-content-center"> 
-        @foreach (var course in Model) { <div class="card course-card" style="width: 18rem;">
-          <img class="course-icon card-img-top" src="/Image/ic-course.png" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">@course.CourseName</h5>
-            <p class="card-text">Code: @course.CourseCode</p>
-            <a href="@course.DriveLink" class="btn btn-primary">Explore</a>
-          </div>
-        </div> }
-      </div>
+      <div class="row justify-content-center " style="padding:2rem;"> 
+<a href="@Url.Action("Choose", "Course"    , new { semester = 1 } )" class="btn btn-primary btn-sq-responsive">First Semester</a>
+<a href="@Url.Action("Choose", "Course"  , new { semester = 2 })" class="btn btn-primary btn-sq-responsive">Second Semester</a>
+<a href="@Url.Action("Choose", "Course"  , new { semester = 3 })" class="btn btn-primary btn-sq-responsive">Third Semester</a>
+<a href="@Url.Action("Choose", "Course"  , new { semester = 4 })" class="btn btn-primary btn-sq-responsive">Fourth Semester</a>
+<a href="@Url.Action("Choose", "Course"  , new { semester = 5 })" class="btn btn-primary btn-sq-responsive">Fifth Semester</a>
+<a href="@Url.Action("Choose", "Course"  , new { semester = 6 })" class="btn btn-primary btn-sq-responsive">Sixth Semester</a>
+<a href="@Url.Action("Choose", "Course"  , new { semester = 7 })" class="btn btn-primary btn-sq-responsive">Seventh Semester</a>
+<a href="@Url.Action("Choose", "Course"  , new { semester = 8 })" class="btn btn-primary btn-sq-responsive">Eighth Semester</a>
+  </div>
     </div>
   </section>
+

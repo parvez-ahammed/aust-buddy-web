@@ -354,11 +354,14 @@
     <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\credentials.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Features\Course\CourseUtility.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Models.cs" />
+    <Compile Include="Models\VideoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -422,6 +425,8 @@
     <Content Include="Views\Course\Course.cshtml" />
     <Content Include="Views\Announcement\Add.cshtml" />
     <Content Include="Views\Course\Choose.cshtml" />
+    <Content Include="Views\Course\Watch.cshtml" />
+    <Content Include="Views\Course\Playlists.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
