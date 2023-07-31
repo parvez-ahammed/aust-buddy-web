@@ -23,7 +23,7 @@ body {
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 100%;
 }
 
 .nav {
@@ -227,7 +227,7 @@ a {
 /* Add styling for the border */
 .form-outline {
     border: 2px solid #16A34A; /* Change the color and size as needed */
-    padding: 10px; /* Optional: Add padding to create some space between the border and the content */
+    padding: 1px; /* Optional: Add padding to create some space between the border and the content */
 }
 
 /* Style for Extra Large Screen */

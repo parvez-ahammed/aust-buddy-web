@@ -1,15 +1,18 @@
 ﻿
 
 
-<div class="container justify-content-center"> <!-- Optional container to center the form within the page width -->
+<div class="container justify-content-center col-lg-12"> <!-- Optional container to center the form within the page width -->
     @using (Html.BeginForm("ScrapPlaylist", "Course", FormMethod.Post))
   {
+ 
   
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="youtubPlaylistId" class="sr-only">Playlist Id</label>
-      <input type="text" class="form-control" id="youtubPlaylistId" name="playlistId" placeholder="Playlist Id">
+    <div class="form-group  col-lg-12 " >
+      <label for="youtubPlaylistId" class="sr-only" >Playlist Id</label>
+      <input type="text" class="form-control" style= "width:100%;" id="youtubPlaylistId" name="playlistId" placeholder="Playlist Id">
     </div>
+
     <button type="submit" class="btn btn-primary mb-2">Add Playlist</button>
  
      }
 </div>
+
