@@ -362,6 +362,7 @@
     </Compile>
     <Compile Include="Models\Models.cs" />
     <Compile Include="Models\VideoModel.cs" />
+    <Compile Include="Models\YouTubeVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -427,6 +428,7 @@
     <Content Include="Views\Course\Choose.cshtml" />
     <Content Include="Views\Course\Watch.cshtml" />
     <Content Include="Views\Course\Playlists.cshtml" />
+    <Content Include="Views\Course\AddPlaylist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

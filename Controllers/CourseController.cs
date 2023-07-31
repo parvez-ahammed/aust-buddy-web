@@ -4,9 +4,11 @@ using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace AUST_BUDDY_WEB.Controllers
@@ -53,6 +55,11 @@ namespace AUST_BUDDY_WEB.Controllers
 		{
 			return View();
 		}
+		[HttpGet]
+		public ActionResult AddPlaylist()
+		{
+			return View();
+		}
 
 		public ActionResult Add()
 		{
@@ -96,6 +103,68 @@ namespace AUST_BUDDY_WEB.Controllers
 			}
 			return View(videoModel);
 		}
+
+
+
+		// ... (other methods)
+
+		[HttpPost]
+		public async Task<ActionResult> ScrapPlaylist(string playlistId)
+		{
+			try
+			{
+				// YouTube Data API endpoint
+				string apiUrl = $"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId={playlistId}&key={credentials.youTubeApi}";
+
+				// Make a request to the YouTube Data API
+				using (HttpClient client = new HttpClient())
+				{
+					HttpResponseMessage response = await client.GetAsync(apiUrl);
+					string jsonResult = await response.Content.ReadAsStringAsync();
+
+					// Parse the JSON response and extract video information
+					JObject jsonObject = JObject.Parse(jsonResult);
+					JArray items = (JArray)jsonObject["items"];
+
+					// Create a list to hold YouTubeVideo objects
+					var videoList = new List<YouTubeVideo>();
+
+					// Loop through the items and add video information to the list
+					foreach (var item in items)
+					{
+						string videoId = item["snippet"]["resourceId"]["videoId"].ToString();
+						string videoTitle = item["snippet"]["title"].ToString();
+						string thumbnailUrl = item["snippet"]["thumbnails"]["default"]["url"].ToString();
+
+						// Create a new YouTubeVideo object and add it to the list
+						var video = new YouTubeVideo
+						{
+							VideoId = videoId,
+							Title = videoTitle,
+							Thumbnail = thumbnailUrl
+						};
+
+						videoList.Add(video);
+					}
+
+					// Now the videoList contains all the video information from the playlist.
+					// Here, you can perform additional processing or push the videoList to Firebase as needed.
+					// For example, you can use the _firebaseClient to push the data to Firebase:
+					_firebaseClient.Push("test-youtube", videoList);
+
+					TempData["SuccessMessage"] = "Playlist has been successfully scraped!";
+					// After processing the playlist, pass the videoList to the view.
+					return Redirect("Course");
+				}
+			}
+			catch (Exception ex)
+			{
+				// Handle any errors that may occur during the process.
+				// You can log the error, show an error message, or handle it as needed.
+				return View("Error"); // For example, show an error view.
+			}
+		}
+
 
 
 
