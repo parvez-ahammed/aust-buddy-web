@@ -1,5 +1,5 @@
 ﻿
-@model AUST_BUDDY_WEB.Models.VideoModel
+
 
 @{
     ViewBag.Title = "Course";
@@ -7,12 +7,26 @@
 
 <h1 class="display-5 fw-bold">Software Devlopment</h1>
 
-@foreach (var videoTitle in Model.VideoTitles)
+@model List<AUST_BUDDY_WEB.Models.YouTubeVideo>
+
+
+@if (Model.Count > 0)
 {
-    var videoIndex = Model.VideoTitles.IndexOf(videoTitle);
     <section style="margin:5%">
-    <h2>@videoTitle</h2>
-    
-    <div class ="video-container">@Html.Raw(Model.VideoEmbeds[videoIndex])</div>
-    </section>
+        @foreach (var video in Model)
+        {
+        
+            <div class="col-md-12">
+                <h2>@video.Title</h2>
+                <div class="video-container">
+                    <!-- Assuming you have a property for the video URL in the YouTubeVideo model -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/@video.VideoId" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        }
+     </section>
+}
+else
+{
+    <p>No videos found.</p>
 }

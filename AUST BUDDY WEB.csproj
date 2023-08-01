@@ -361,6 +361,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Models.cs" />
+    <Compile Include="Models\PlaylistDetails.cs" />
     <Compile Include="Models\VideoModel.cs" />
     <Compile Include="Models\YouTubeVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -74,34 +74,15 @@ namespace AUST_BUDDY_WEB.Controllers
 		}
 
 		private readonly string playlistId = "PLom9DLdqyyk7r98iyUR-QAm6OeMijt1ud";
-		public ActionResult Watch()
+		public ActionResult Watch(string videos)
 		{
-			// YouTube Data API endpoint
-			string apiUrl = $"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId={playlistId}&key={credentials.youTubeApi}";
 
-			// Make a request to the YouTube Data API
-			HttpClient client = new HttpClient();
-			HttpResponseMessage response = client.GetAsync(apiUrl).Result;
-			string jsonResult = response.Content.ReadAsStringAsync().Result;
+			// Use the videos key to fetch the corresponding video data from Firebase
+			FirebaseResponse response = _firebaseClient.Get($"youtube-videos/{videos}");
+			var videoList = response.ResultAs<List<YouTubeVideo>>();
 
-			// Parse the JSON response and extract video information
-			JObject jsonObject = JObject.Parse(jsonResult);
-			JArray items = (JArray)jsonObject["items"];
-
-			// Create a model to hold video information
-			var videoModel = new VideoModel();
-
-			// Loop through the items and add video titles and embeds to the model
-			foreach (var item in items)
-			{
-				string videoTitle = item["snippet"]["title"].ToString();
-				string videoId = item["snippet"]["resourceId"]["videoId"].ToString();
-				string videoEmbed = $"<iframe width='560' height='315' src='https://www.youtube.com/embed/{videoId}' frameborder='0' allowfullscreen></iframe>";
-
-				videoModel.VideoTitles.Add(videoTitle);
-				videoModel.VideoEmbeds.Add(videoEmbed);
-			}
-			return View(videoModel);
+			// Pass the video data to the "Watch" view
+			return View(videoList);
 		}
 
 
@@ -109,10 +90,17 @@ namespace AUST_BUDDY_WEB.Controllers
 		// ... (other methods)
 
 		[HttpPost]
-		public async Task<ActionResult> ScrapPlaylist(string playlistId)
+		public async Task<ActionResult> ScrapPlaylist(string playlistId, string playlistTitle)
 		{
 			try
 			{
+				var playlistDetails = new PlaylistDetails
+				{
+					PlaylistId = playlistId,
+					PlaylistTitle = playlistTitle, // You can set the playlist title based on the fetched data
+												   // Add other playlist details as needed
+				};
+
 				// YouTube Data API endpoint
 				string apiUrl = $"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId={playlistId}&key={credentials.youTubeApi}";
 
@@ -150,7 +138,18 @@ namespace AUST_BUDDY_WEB.Controllers
 					// Now the videoList contains all the video information from the playlist.
 					// Here, you can perform additional processing or push the videoList to Firebase as needed.
 					// For example, you can use the _firebaseClient to push the data to Firebase:
-					_firebaseClient.Push("test-youtube", videoList);
+
+					var videosKey = _firebaseClient.Push("youtube-videos", videoList).Result.name;
+
+
+					playlistDetails.VideosKey = videosKey;
+
+					_firebaseClient.Push("youtube-playlists", playlistDetails);
+
+
+
+
+
 
 					TempData["SuccessMessage"] = "Playlist has been successfully scraped!";
 					// After processing the playlist, pass the videoList to the view.
@@ -170,7 +169,25 @@ namespace AUST_BUDDY_WEB.Controllers
 
 		public ActionResult Playlists()
 		{
-			return View();
+			List<PlaylistDetails> playLists;
+			string path = "youtube-playlists";
+			playLists = GetPlayListDataFromFirebase(path);
+			return View(playLists);
+		}
+
+		private List<PlaylistDetails> GetPlayListDataFromFirebase(string path)
+		{
+			// Replace "courses" with the path to your Firebase collection where course data is stored.
+			FirebaseResponse response = _firebaseClient.Get(path);
+
+			// Check if the data is null or not found
+			if (response.Body == "null")
+			{
+				return new List<PlaylistDetails>();
+			}
+
+			var playLists = response.ResultAs<Dictionary<string, PlaylistDetails>>();
+			return playLists.Values.ToList();
 		}
 
 
