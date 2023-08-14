@@ -10,17 +10,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-
-    - name: Install Azure CLI
-      run: |
-        Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi
-        Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
-
-    - name: Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -42,15 +31,11 @@ jobs:
     - name: Build and Publish
       run: msbuild /p:Configuration=Release /p:DeployOnBuild=true
 
-
-    
-
-    - run: |
-        az webapp list --query "[?state=='Running']"
-
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: '<austbuddy>'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: .
+        azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
