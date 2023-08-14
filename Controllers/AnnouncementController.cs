@@ -15,7 +15,10 @@ namespace AUST_BUDDY_WEB.Controllers
 		// GET: Announcement
 		public ActionResult Index()
 		{
-			return View();
+			List<Announcement> announcementList;
+			string path = "public-announcements/all";
+			announcementList = GetCAnnouncementDataFromFirebase(path);
+			return View(announcementList);
 		}
 		public AnnouncementController()
 		{

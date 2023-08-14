@@ -384,6 +384,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
@@ -393,8 +394,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Models.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Announcement.cs" />
+    <Compile Include="Models\BugReport.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupNotice.cs" />
+    <Compile Include="Models\Material.cs" />
     <Compile Include="Models\PlaylistDetails.cs" />
+    <Compile Include="Models\Routine.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserAll.cs" />
     <Compile Include="Models\VideoModel.cs" />
     <Compile Include="Models\YouTubeVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -403,9 +414,13 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\hero_2.png" />
     <Content Include="Image\hero_img.png" />
     <Content Include="Image\ic-course.png" />
     <Content Include="Image\logo_back.png" />
+    <Content Include="Image\parvez.jpg" />
+    <Content Include="Image\salman.jpg" />
+    <Content Include="Image\tara.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -437,6 +452,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Announcement\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

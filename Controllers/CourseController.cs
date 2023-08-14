@@ -20,10 +20,7 @@ namespace AUST_BUDDY_WEB.Controllers
 		private readonly IFirebaseClient _firebaseClient;
 		public ActionResult Index()
 		{
-			FirebaseResponse response = _firebaseClient.Get("course-list/CSE/year1semester1");
-			var courses = response.ResultAs<Dictionary<string, Course>>();
-
-			return View(courses.Values);
+			return View();
 		}
 
 		public CourseController()

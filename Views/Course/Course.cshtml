@@ -1,34 +1,6 @@
-﻿@{ ViewBag.Title = "Course"; }
-
-
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        @TempData["SuccessMessage"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-}
-
-@model IEnumerable<AUST_BUDDY_WEB.Models.Course>
-
-<a href="@Url.Action("Add", "Course" )" class="btn btn-primary btn-lg btn-block">Add Course</a>
-<a href="@Url.Action("AddPlaylist", "Course" )" class="btn btn-primary btn-lg btn-block">Add Playlist</a>
-<a href="@Url.Action("Playlists", "Course" )" class="btn btn-primary btn-lg btn-block">View Playlists</a>
+﻿
 
 
 
-<section>
-    <div class="container">
-        <div class="row justify-content-center " style="padding:2rem;">
-            <a href="@Url.Action("Choose", "Course"    , new { semester = 1 })" class="btn btn-primary btn-sq-responsive">First Semester</a>
-            <a href="@Url.Action("Choose", "Course"  , new { semester = 2 })" class="btn btn-primary btn-sq-responsive">Second Semester</a>
-            <a href="@Url.Action("Choose", "Course"  , new { semester = 3 })" class="btn btn-primary btn-sq-responsive">Third Semester</a>
-            <a href="@Url.Action("Choose", "Course"  , new { semester = 4 })" class="btn btn-primary btn-sq-responsive">Fourth Semester</a>
-            <a href="@Url.Action("Choose", "Course"  , new { semester = 5 })" class="btn btn-primary btn-sq-responsive">Fifth Semester</a>
-            <a href="@Url.Action("Choose", "Course"  , new { semester = 6 })" class="btn btn-primary btn-sq-responsive">Sixth Semester</a>
-            <a href="@Url.Action("Choose", "Course"  , new { semester = 7 })" class="btn btn-primary btn-sq-responsive">Seventh Semester</a>
-            <a href="@Url.Action("Choose", "Course"  , new { semester = 8 })" class="btn btn-primary btn-sq-responsive">Eighth Semester</a>
-        </div>
-    </div>
-</section>
+
 
