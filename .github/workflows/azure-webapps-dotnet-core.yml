@@ -41,7 +41,8 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-      run: |
+        
+    - run: |
         az webapp list --query "[?state=='Running']"
 
     - name: Deploy to Azure Web App
