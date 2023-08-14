@@ -16,6 +16,8 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
 
+      
+
     - name: Cache NuGet packages
       id: cache-nuget
       uses: actions/cache@v2
@@ -29,7 +31,7 @@ jobs:
       run: nuget restore
 
     - name: Build and Publish
-      run: msbuild /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=Properties/PublishProfiles/YourPublishProfile.pubxml
+      run: msbuild /p:Configuration=Release /p:DeployOnBuild=true
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
