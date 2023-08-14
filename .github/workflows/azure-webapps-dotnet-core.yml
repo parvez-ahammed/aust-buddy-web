@@ -39,3 +39,4 @@ jobs:
         app-name: '<austbuddy>'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: .
+        credentials: ${{ secrets.AZURE_CREDENTIALS }}
