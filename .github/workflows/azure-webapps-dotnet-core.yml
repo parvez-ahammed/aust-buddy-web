@@ -31,6 +31,15 @@ jobs:
     - name: Build and Publish
       run: msbuild /p:Configuration=Release /p:DeployOnBuild=true
 
+
+    - name: Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - run: |
+        az webapp list --query "[?state=='Running']"
+
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
