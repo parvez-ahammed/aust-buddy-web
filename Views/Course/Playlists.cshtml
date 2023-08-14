@@ -1,23 +1,24 @@
 ﻿
 
 
-  
-
-@model IEnumerable <AUST_BUDDY_WEB.Models.PlaylistDetails>
-
-    <!-- Your HTML content for the "Course" view here -->
 
 
-  <section>
+@model IEnumerable<AUST_BUDDY_WEB.Models.PlaylistDetails>
+
+<!-- Your HTML content for the "Course" view here -->
+
+
+<section>
     <div class="container">
-      <div class="row justify-content-center"> 
-        @foreach (var playlist in Model) { <div class="card course-card" style="width: 18rem;">
-          <img class="course-icon card-img-top" src="/Image/ic-course.png" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">@playlist.PlaylistTitle</h5>
-            <a href="@Url.Action("Watch", "Course" , new { videos = @playlist.VideosKey })" class="btn btn-primary">Explore</a>
-          </div>
-        </div> }
-      </div>
+        <div class="row justify-content-center">
+            @foreach (var playlist in Model)
+            {<div class="card course-card" style="width: 18rem;">
+                    <img class="course-icon card-img-top" src="/Image/ic-course.png" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@playlist.PlaylistTitle</h5>
+                        <a href="@Url.Action("Watch", "Course" , new { videos = @playlist.VideosKey })" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>}
+        </div>
     </div>
-  </section>
+</section>

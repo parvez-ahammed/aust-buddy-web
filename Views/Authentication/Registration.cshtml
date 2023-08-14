@@ -23,53 +23,53 @@
           <h1 class="fw-bold mb-5" >Registration</h1>
             <h4 class="fw-bold mb-5" >Register with your institutional email</h4>
 
-          <form action= "/AuthenticationController/Registration" method="post">
-            <!-- 2 column grid layout with text inputs for the first and last names -->
-            <div class="row">
-              <div class="col-md-6" >
+            <form action="/AuthenticationController/Registration" method="post">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                    <div class="col-md-6">
 
-                <div class="form-outline">
-                  <input type="text" id="form3Example1" class="form-control" style="margin-top:1rem;" />
-                  <label class="form-label" for="form3Example1">First name</label>
+                        <div class="form-outline">
+                            <input type="text" id="form3Example1" class="form-control" style="margin-top:1rem;" />
+                            <label class="form-label" for="form3Example1">First name</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <input type="text" id="form3Example2" class="form-control" />
+                            <label class="form-label" for="form3Example2">Last name</label>
+                        </div>
+                    </div>
                 </div>
 
-              </div>
-              <div class="col-md-6 mb-4">
-                <div class="form-outline">
-                  <input type="text" id="form3Example2" class="form-control" />
-                  <label class="form-label" for="form3Example2">Last name</label>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email address</label>
                 </div>
-              </div>
-            </div>
 
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control" />
-              <label class="form-label" for="form3Example3">Email address</label>
-            </div>
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4" class="form-control" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                </div>
 
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-              <input type="password" id="form3Example4" class="form-control" />
-              <label class="form-label" for="form3Example4">Password</label>
-            </div>
+                <!-- Confirm Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4" class="form-control" />
+                    <label class="form-label" for="form3Example4">Confirm Password</label>
+                </div>
 
-            <!-- Confirm Password input -->
-            <div class="form-outline mb-4">
-              <input type="password" id="form3Example4" class="form-control" />
-              <label class="form-label" for="form3Example4">Confirm Password</label>
-            </div>
 
-            
 
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">
-              Sign up
-            </button>
-             <p class="mb-5" >Already have an account?  <text class="fw-bold " style ="color:#16A34A ;" href="#" >Login </text> </p>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">
+                    Sign up
+                </button>
+                <p class="mb-5">Already have an account?  <a class="fw-bold " style="color:#16A34A ;" href="@Url.Action("Login", "Authentication")">Login </a> </p>
+                
 
-           
-          </form>
+            </form>
         </div>
       </div>
     </div>
