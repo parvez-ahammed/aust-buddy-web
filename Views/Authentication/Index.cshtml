@@ -1,0 +1,15 @@
+﻿@model AUST_BUDDY_WEB.Models.UserLogin
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_layout_2.cshtml";
+}
+
+@if (Session["Email"] != null)
+{
+    <h2>Welcome @Session["Email"].ToString()</h2>
+
+}
+@if (Session["Email"] == null)
+{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
