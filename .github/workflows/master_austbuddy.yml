@@ -10,8 +10,23 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  check:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check Commit Message for Deploy Keyword
+        id: check-commit-message
+        run: |
+          if [[ "${{ github.event.head_commit.message }}" == *"Deploy"* ]]; then
+            echo "Deploy keyword found in commit message. Proceeding with deployment..."
+          else
+            echo "Deploy keyword not found. Skipping deployment."
+          exit 0  # Exit the workflow without performing further steps
+
   build:
     runs-on: windows-latest
+    needs: check
 
     steps:
       - uses: actions/checkout@v2
