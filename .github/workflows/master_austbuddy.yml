@@ -19,7 +19,7 @@ jobs:
         id: check-commit-message
         run: |
           if [[ "${{ github.event.head_commit.message }}" == *"Deploy"* ]]; then
-            echo "Deploy keyword found in commit message. Proceeding with deployment..."
+            echo ('Deploy keyword found in commit message. Proceeding with deployment...') 
           else
             echo "Deploy keyword not found. Skipping deployment."
           exit 0  # Exit the workflow without performing further steps
