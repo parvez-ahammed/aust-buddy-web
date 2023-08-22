@@ -32,6 +32,9 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.0.5
 
+      - name: Clean NuGet packages
+        run: nuget locals all -clear
+        
       - name: Restore NuGet packages
         run: nuget restore -PackagesDirectory ~/.nuget/packages
 
