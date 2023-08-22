@@ -13,19 +13,41 @@
         </div>
     </section>
 
+    
+
+
    <section class="comment-section">
     <div class="container">
         <h3>Comments</h3>
-         <ul class="comments-list">
+       
             @foreach (var comment in Model.Comments)
             {
-                <li class="comment">
-                <p>@comment.Text</p>
-                <!-- Optional: Display author's name -->
-                
-                </li>
-    }
-            </ul>
+            <div class="container mt-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-12">
+                        <div class="d-flex flex-column comment-section">
+                            <div class="bg-white p-2">
+                                <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                                </div>
+                                 <p class=" mt 2">
+				                    @comment.Text
+			                    </p>
+                            </div>
+                            <div class="bg-white">
+                                <div class="d-flex flex-row fs-12">
+                                        <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                                </div>
+                            </div>
+               
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        
         
         <h4>Add a Comment</h4>
         <form action="@Url.Action("Add", "Comment")" method="post">
@@ -66,11 +88,7 @@
         color: #666;
         margin-bottom: 20px;
     }
-    .comment-section {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid #ccc;
-    }
+    
     
     /* Adjust the width of the comment textarea */
     #commentText {
@@ -81,6 +99,14 @@
         padding-top: 20px;
         border-top: 1px solid #ccc;
     }
+    .date{font-size: 20px}
+    .comment-text{font-size: 18px}
+    .fs-12{font-size: 12px}
+    .shadow-none{box-shadow: none}
+    .name{color: #16A34A}
+    .cursor:hover{color: blue}
+    .cursor{cursor: pointer}
+    .textarea{resize: none}
 </style>
 
 

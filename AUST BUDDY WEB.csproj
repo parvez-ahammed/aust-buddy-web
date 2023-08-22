@@ -441,6 +441,7 @@
     <None Include="Views\Privacy\Index.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
     <None Include="Views\Partial\_Footer.cshtml" />
+    <Content Include="Views\Shared\_layout_2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
