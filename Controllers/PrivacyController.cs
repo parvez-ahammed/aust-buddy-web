@@ -2,9 +2,9 @@
 
 namespace AUST_BUDDY_WEB.Controllers
 {
-    public class FAQController : Controller
+    public class PrivacyController : Controller
     {
-        // GET: FAQ
+        // GET: Privacy
         public ActionResult Index()
         {
             return View();

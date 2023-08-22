@@ -228,7 +228,10 @@ a {
 .form-outline {
     border: 2px solid #16A34A; /* Change the color and size as needed */
     padding: 1px; /* Optional: Add padding to create some space between the border and the content */
-    
+    margin-top:1rem;
+}
+.form-label {
+    padding-top: 1rem;
 }
 
 /* Style for Extra Large Screen */

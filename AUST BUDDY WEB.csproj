@@ -412,6 +412,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrivacyController.cs" />
     <Compile Include="Features\Course\CourseUtility.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -433,6 +434,7 @@
     <Compile Include="Models\YouTubeVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartUp.cs" />
+    <None Include="Views\Privacy\Index.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
     <None Include="Views\Partial\_Footer.cshtml" />
   </ItemGroup>

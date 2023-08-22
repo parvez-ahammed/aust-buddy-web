@@ -1,5 +1,6 @@
-﻿@model AUST_BUDDY_WEB.Models.User
-<main>
+﻿@{ ViewBag.Title = "Registration"; }
+@model AUST_BUDDY_WEB.Models.User
+
     <!-- Section: Design Block -->
     <section class="text-center">
         <!-- Background image -->
@@ -25,40 +26,42 @@
                         {
                         @Html.AntiForgeryToken()
                         <!-- 2 column grid layout with text inputs for the first and last names -->
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="col-md-6">
                                 <div class="form-outline">
-                                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", style = "margin-top:1rem;" })
-                                    <label class="form-label" for="form3Example1">First name</label>
+                                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", style = "margin-top:2rem;" })
+                                    <label class="form-label" for="form3Example1" style ="padding-top:1rem;">First name</label>
                                     @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4">
+
+                            <div class="col-md-6 ">
                                 <div class="form-outline">
-                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", style = "margin-top:1rem;" })
-                                    <label class="form-label" for="form3Example2">Last name</label>
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", style = "margin-top:2rem;" })
+                                    <label class="form-label" for="form3Example2" style ="padding-top:1rem;">Last name</label>
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                            <label class="form-label" for="form3Example3">Email address</label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" , style = "margin-top:2rem;" })
+                            <label class="form-label" for="form3Example3" style ="padding-top:1rem;" >Email address</label>
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                            <label class="form-label" for="form3Example4">Password</label>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" ,style = "margin-top:2rem;" })
+                            <label class="form-label" for="form3Example4" style ="padding-top:1rem;">Password</label>
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
 
                         <!-- Confirm Password input -->
                         <div class="form-outline mb-4">
-                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
-                            <label class="form-label" for="form3Example5">Confirm Password</label>
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" ,style = "margin-top:2rem;" })
+                            <label class="form-label" for="form3Example5" style ="padding-top:1rem;">Confirm Password</label>
                             @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                         </div>
 
@@ -78,4 +81,4 @@
     </section>
     <!-- Section: Design Block -->
 
-</main>
+

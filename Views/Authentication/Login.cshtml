@@ -1,4 +1,6 @@
-﻿@model AUST_BUDDY_WEB.Models.UserLogin
+﻿@{ ViewBag.Title = "Login"; }
+
+@model AUST_BUDDY_WEB.Models.UserLogin
 <main>
 
     <!-- Section: Design Block -->
@@ -27,17 +29,17 @@
                             @Html.AntiForgeryToken()
 
 
-                            <!-- Email input -->
+                      <!-- Email input -->
                     <div class="form-outline mb-4">
-                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                        <label class="form-label" for="email">Email address</label>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control"  ,style = "margin-top:2rem;"})
+                        <label class="form-label" for="email" style ="padding-top:1rem;">Email address</label>
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
 
                             <!-- Password input -->
                     <div class="form-outline mb-4">
-                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                        <label class="form-label" for="password">Password</label>
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" ,style = "margin-top:2rem;" })
+                        <label class="form-label" for="password" style ="padding-top:1rem;" >Password</label>
                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
 
@@ -46,10 +48,7 @@
                             <div class="row mb-4">
                                 <div class="col d-flex justify-content-center">
                                     <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="form2Example31" />
-                                        <label class="form-check-label" for="form2Example31"> Remember me </label>
-                                    </div>
+                                   
                                 </div>
 
                                 <div class="col">
@@ -66,23 +65,11 @@
                             <button type="submit" class="btn btn-primary btn-block mb-4">
                                 Login
                             </button>
-                            <p class="mb-5">Don't have an account?  <a class="fw-bold " style="color:#16A34A ;" href="@Url.Action("Registration","Authentication")">Register </a> </p>
+                            <p class="mb-5">Don't have an account?  <a class="fw-bold " style="color:#16A34A ;" href="@Url.Action("registration","authentication")">Register </a> </p>
 
                         }
 
                         </div>
-                    <div class="row mb-4">
-                        <div class="col d-flex justify-content-center">
-                            <!-- Checkbox -->
-                            <a class="fw-bold " style="color:#16A34A ;" href="#">Privacy Policy </a>
-                        </div>
-
-                        <div class="col">
-                            <!-- Simple link -->
-                            <a class="fw-bold " style="color:#16A34A ;" href="#">About us </a>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
