@@ -410,6 +410,7 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\credentials.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Features\Course\CourseUtility.cs" />
     <Compile Include="Global.asax.cs">
@@ -432,6 +433,8 @@
     <Compile Include="Models\YouTubeVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartUp.cs" />
+    <Content Include="Views\FAQ\Index.cshtml" />
+    <None Include="Views\Partial\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -457,6 +460,7 @@
     <Content Include="Image\hero_img.png" />
     <Content Include="Image\ic-course.png" />
     <Content Include="Image\logo_back.png" />
+    <Content Include="Image\miraz.jpg" />
     <Content Include="Image\parvez.jpg" />
     <Content Include="Image\salman.jpg" />
     <Content Include="Image\tara.jpg" />

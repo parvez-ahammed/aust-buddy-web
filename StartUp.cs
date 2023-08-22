@@ -14,8 +14,8 @@ namespace AUST_BUDDY_WEB
 			app.UseCookieAuthentication(new CookieAuthenticationOptions
 			{
 				AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-				LoginPath = new PathString("/Authentication/Login"), // Set your login page path
-				LogoutPath = new PathString("/Authentication/Logout"),
+				LoginPath = new PathString("/authentication/login"), // Set your login page path
+				LogoutPath = new PathString("/authentication/logout"),
 				// Additional configuration options...
 			});
 
