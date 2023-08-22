@@ -407,6 +407,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\credentials.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -419,7 +420,9 @@
     </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Announcement.cs" />
+    <Compile Include="Models\AnnouncementCommentViewModel.cs" />
     <Compile Include="Models\BugReport.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupNotice.cs" />
@@ -434,6 +437,7 @@
     <Compile Include="Models\YouTubeVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartUp.cs" />
+    <Content Include="Views\Announcement\Details.cshtml" />
     <None Include="Views\Privacy\Index.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
     <None Include="Views\Partial\_Footer.cshtml" />
@@ -514,7 +518,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Course\Add.cshtml" />
     <Content Include="Views\Home\AddTeacher.cshtml" />
-    <Content Include="Views\Announcement\Announcement.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Authentication\Registration.cshtml" />
     <Content Include="Views\Course\Course.cshtml" />
@@ -528,6 +531,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Comment\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>

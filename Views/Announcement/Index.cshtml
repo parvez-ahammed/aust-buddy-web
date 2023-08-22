@@ -16,16 +16,10 @@
                                 <h5 class="card-title">@announcement.ProductCategory</h5>
                                 <p class="card-text"> @announcement.ProductName</p>
                                 <p class="card-text"> @announcement.ProductDetails</p>
-
-
-                                <a href="#" class="btn btn-primary">Details</a>
+                                <a href="@Url.Action("details", "announcement" , new { id = @announcement.ProductId })" class="btn btn-primary">Details</a>
                             </div>
                         </div>}
-                    
-
-
-
-
+                   
 
                 </div>
             </div>

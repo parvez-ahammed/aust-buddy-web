@@ -1,0 +1,88 @@
+﻿@{ ViewBag.Title = "Announcement"; }
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="blog-post">
+                    <h2 class="blog-post-title">@Model.Announcement.ProductName</h2>
+                    <p class="blog-post-meta">@Model.Announcement.ProductCategory</p>
+                    <p>@Model.Announcement.ProductDetails</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="comment-section">
+    <div class="container">
+        <h3>Comments</h3>
+         <ul class="comments-list">
+            @foreach (var comment in Model.Comments)
+            {
+                <li class="comment">
+                <p>@comment.Text</p>
+                <!-- Optional: Display author's name -->
+                
+                </li>
+    }
+            </ul>
+        
+        <h4>Add a Comment</h4>
+        <form action="@Url.Action("Add", "Comment")" method="post">
+            @Html.AntiForgeryToken()
+
+            <!-- Optional: Hidden field for announcement ID -->
+            <input type="hidden" name="announcementId" value="@Model.Announcement.ProductId" />
+
+            <div class="form-group">
+                <label for="commentText">Comment:</label>
+                <textarea id="commentText" name="commentText" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Comment</button>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<style>
+   .blog-post {
+        max-width: 100%; /* Adjust to match your desired card width */
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-post-title {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .blog-post-meta {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    .comment-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+    }
+    
+    /* Adjust the width of the comment textarea */
+    #commentText {
+        width: 100%; /* Set to match the container's width */
+    }
+      .comment-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
+
+
+
