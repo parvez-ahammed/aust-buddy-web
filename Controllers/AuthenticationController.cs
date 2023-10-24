@@ -120,7 +120,6 @@ namespace AUST_BUDDY_WEB.Controllers
         {
             ViewBag.Message = "Your Registration page.";
             System.Diagnostics.Debug.WriteLine("Enter");
-            Console.WriteLine("k");
             try
             {
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
