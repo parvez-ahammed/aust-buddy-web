@@ -160,8 +160,7 @@ namespace AUST_BUDDY_WEB.Controllers
             }
             catch (Exception)
             {
-                // Handle any errors that may occur during the process.
-                // You can log the error, show an error message, or handle it as needed.
+                
                 return View("Error"); // For example, show an error view.
             }
         }
