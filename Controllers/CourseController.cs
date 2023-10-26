@@ -18,11 +18,12 @@ namespace AUST_BUDDY_WEB.Controllers
         // GET: Course
         private readonly IFirebaseConfig _firebaseConfig;
         private readonly IFirebaseClient _firebaseClient;
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
-
+        
         public CourseController()
         {
             _firebaseConfig = new FirebaseConfig
@@ -48,20 +49,23 @@ namespace AUST_BUDDY_WEB.Controllers
             return courses.Values.ToList();
         }
 
+        [Authorize]
         public ActionResult Course()
         {
             return View();
         }
         [HttpGet]
+        [Authorize]
         public ActionResult AddPlaylist()
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult Add()
         {
             return View();
         }
+        [Authorize]
         public ActionResult Choose(int semester)
         {
             List<Course> courseDataList;
@@ -71,6 +75,7 @@ namespace AUST_BUDDY_WEB.Controllers
         }
 
         private readonly string playlistId = "PLom9DLdqyyk7r98iyUR-QAm6OeMijt1ud";
+        [Authorize]
         public ActionResult Watch(string videos)
         {
 
@@ -163,7 +168,7 @@ namespace AUST_BUDDY_WEB.Controllers
 
 
 
-
+        [Authorize]
         public ActionResult Playlists()
         {
             List<PlaylistDetails> playLists;
