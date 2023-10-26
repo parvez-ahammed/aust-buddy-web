@@ -137,7 +137,7 @@ namespace AUST_BUDDY_WEB.Controllers
                         videoList.Add(video);
                     }
 
-                    // Now the videoList contains all the video information from the playlist.
+                    
                     // Here, you can perform additional processing or push the videoList to Firebase as needed.
                     // For example, you can use the _firebaseClient to push the data to Firebase:
 
