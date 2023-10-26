@@ -1,4 +1,5 @@
 ﻿@model AUST_BUDDY_WEB.Models.UserLogin
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,14 +31,25 @@
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    @if (Session["Email"] != null)
+                    @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Course", "index", "course", new { area = "" }, new { @class = "nav-link" })</li>
                         @* <li>@Html.ActionLink("Announcements", "index", "announcement", new { area = "" }, new { @class = "nav-link" })</li>*@
-                    }
 
-                        @* <li>@Html.ActionLink("Registration", "registration", "authentication", new { area = "" }, new { @class = "nav-link" })</li> *@
-                    </ul>
+                    }
+                    @* <li>@Html.ActionLink("Registration", "registration", "authentication", new { area = "" }, new { @class = "nav-link" })</li> *@
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p class="navbar-text ml-2">Welcome,!</p>
+                    <form method="post" action="@Html.ActionLink("Logout", "Authentication")">
+                        <button type="submit" class="btn btn-link text-danger navbar-btn">Logout</button>
+                    </form>
+                }
+                else
+                {
+                    <a class="btn btn-primary ml-2" href="@Url.Action("Login", "Authentication")">Login</a>
+                }
             </div>
         </div>
     </nav>
