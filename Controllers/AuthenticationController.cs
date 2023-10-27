@@ -82,8 +82,14 @@ namespace AUST_BUDDY_WEB.Controllers
             }
             catch (Exception ex)
             {
-                // Info
-                throw ex;
+                if (ex.Message.Contains("INVALID_PASSWORD"))
+                {
+                    ModelState.AddModelError(string.Empty, "You have entered an invalid username or password");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
             }
 
             // If we got this far, something failed, redisplay form
@@ -157,11 +163,12 @@ namespace AUST_BUDDY_WEB.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
+            ModelState.AddModelError(string.Empty, "hell");
+
             Session["Email"] = "";
             Session.Abandon();
             FormsAuthentication.SignOut();
-
-            return RedirectToAction("login", "authentication");
+            return RedirectToAction("Login", "Authentication");
         }
     }
 }
