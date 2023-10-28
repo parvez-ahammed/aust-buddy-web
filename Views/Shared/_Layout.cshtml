@@ -33,9 +33,9 @@
                 <ul class="navbar-nav flex-grow-1">
                     @if (User.Identity.IsAuthenticated && Session["Email"] != null)
                     {
-                        <li>@Html.ActionLink("Course", "Course", "Course", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Course", "Index", "Course", new { area = "" }, new { @class = "nav-link" })</li>
 
-
+                        //@Html.ActionLink("Index", "Course");
                     }
 
 
@@ -49,9 +49,12 @@
                 }
                 else
                 {
-                    <form method="post" action="@Url.Action("Logout", "Authentication")">
-                        <button type="submit" class="btn btn-link text-danger navbar-btn">Logout</button>
-                    </form>
+            <div class="navbar-right">
+                
+                    @Html.ActionLink("Logout", "Logout", "Authentication", null, new { @class = "logout-button" })
+                
+            </div>
+
                 }
             </div>
         </div>
@@ -74,7 +77,6 @@
                 <li><a href="https://github.com/piru72/AUST_BUDDY_WEB" target="_blank" class="nav-item nav-link text-muted">2023 - AUST BUDDY</a></li>
                 <li>@Html.ActionLink("About Us", "index", "about", new { area = "" }, new { @class = "nav-item nav-link  text-muted" })</li>
                 <li>@Html.ActionLink("FAQ", "index", "faq", new { area = "" }, new { @class = "nav-item nav-link  text-muted" })</li>
-                @*<li>@Html.ActionLink("Privacy Policy", "index", "privacy", new { area = "" }, new { @class = "nav-item nav-link  text-muted" })</li> *@
             </ul>
 
         </footer>
@@ -98,6 +100,16 @@
         /* Override any padding within the footer */
         .footer footer {
             padding: 0 !important;
+        }
+        .logout-button {
+            color: #ffffff; /* Text color */
+            background-color: #ff5733; /* Button color */
+            padding: 10px 20px; /* Adjust padding as needed */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            float: right; /* Push the button to the right side of the navigation bar */
         }
     </style>
 
