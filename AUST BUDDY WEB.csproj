@@ -521,7 +521,6 @@
     <Content Include="Views\Home\AddTeacher.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Authentication\Registration.cshtml" />
-    <Content Include="Views\Course\Course.cshtml" />
     <Content Include="Views\Announcement\Add.cshtml" />
     <Content Include="Views\Course\Choose.cshtml" />
     <Content Include="Views\Course\Watch.cshtml" />
