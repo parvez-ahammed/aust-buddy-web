@@ -6,6 +6,7 @@ using FireSharp.Response;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -49,11 +50,7 @@ namespace AUST_BUDDY_WEB.Controllers
             return courses.Values.ToList();
         }
 
-        [Authorize]
-        public ActionResult Course()
-        {
-            return View();
-        }
+       
         [HttpGet]
         [Authorize]
         public ActionResult AddPlaylist()
@@ -87,9 +84,6 @@ namespace AUST_BUDDY_WEB.Controllers
             return View(videoList);
         }
 
-
-
-        // ... (other methods)
 
         [HttpPost]
         public async Task<ActionResult> ScrapPlaylist(string playlistId, string playlistTitle)
@@ -170,13 +164,18 @@ namespace AUST_BUDDY_WEB.Controllers
         [Authorize]
         public ActionResult Playlists()
         {
-            List<PlaylistDetails> playLists;
             string path = "youtube-playlists";
+            List<PlaylistDetails> playLists;
             playLists = GetPlayListDataFromFirebase(path);
-            return View(playLists);
-        }
 
-        private List<PlaylistDetails> GetPlayListDataFromFirebase(string path)
+
+            return View(playLists);
+
+           //return View();
+
+    }
+
+    private List<PlaylistDetails> GetPlayListDataFromFirebase(string path)
         {
             // Replace "courses" with the path to your Firebase collection where course data is stored.
             FirebaseResponse response = _firebaseClient.Get(path);

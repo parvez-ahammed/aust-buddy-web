@@ -1,4 +1,7 @@
-﻿namespace AUST_BUDDY_WEB.Models
+﻿using System.Collections.Generic;
+
+namespace AUST_BUDDY_WEB.Models
+
 {
     public class Course
     {
@@ -7,4 +10,5 @@
         public string DriveLink { get; set; }
         public string CoursePath { get; set; }
     }
+    
 }

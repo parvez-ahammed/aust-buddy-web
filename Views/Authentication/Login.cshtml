@@ -29,26 +29,26 @@
                             @Html.AntiForgeryToken()
 
 
-                      <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control"  ,style = "margin-top:2rem;"})
-                        <label class="form-label" for="email" style ="padding-top:1rem;">Email address</label>
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", style = "margin-top:2rem;" })
+                                <label class="form-label" for="email" style="padding-top:1rem;">Email address</label>
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
 
                             <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" ,style = "margin-top:2rem;" })
-                        <label class="form-label" for="password" style ="padding-top:1rem;" >Password</label>
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                    </div>
+                            <div class="form-outline mb-4">
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control", style = "margin-top:2rem;" })
+                                <label class="form-label" for="password" style="padding-top:1rem;">Password</label>
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
 
 
                             <!-- 2 column grid layout for inline styling -->
                             <div class="row mb-4">
                                 <div class="col d-flex justify-content-center">
                                     <!-- Checkbox -->
-                                   
+
                                 </div>
 
                                 <div class="col">
@@ -66,14 +66,13 @@
                                 Login
                             </button>
                             <p class="mb-5">Don't have an account?  <a class="fw-bold " style="color:#16A34A ;" href="@Url.Action("registration","authentication")">Register </a> </p>
-
+                            <a class="btn btn-default" href="https://accounts.google.com/o/oauth2/auth?client_id=1082440138378-3pfpkbpb0lbg64uq99rn9ll7mhdkj90f.apps.googleusercontent.com&redirect_uri=http://localhost:51065/Authentication/Login&scope=https://www.googleapis.com/auth/userinfo.profile&response_type=code&state=asdafwswdwefwsdg">Google Log in</a>
                         }
 
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
 
     </section>
     <!-- Section: Design Block -->
