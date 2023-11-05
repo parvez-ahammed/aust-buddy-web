@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Owin;
 using System;
 
@@ -17,6 +18,8 @@ namespace AUST_BUDDY_WEB.App_Start
 				LogoutPath = new PathString("/Authentication/Logout"),
 				ExpireTimeSpan = TimeSpan.FromMinutes(30.0)
 			});
+
+			
 		}
 	}
 }

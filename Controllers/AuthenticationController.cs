@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
+using GoogleAuthentication.Services;
 namespace AUST_BUDDY_WEB.Controllers
 {
     public class AuthenticationController : Controller
@@ -19,6 +19,7 @@ namespace AUST_BUDDY_WEB.Controllers
         public static string Bucket = "asp-mvc-with-android.appspot.com";
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -31,8 +32,10 @@ namespace AUST_BUDDY_WEB.Controllers
                 // Verification.
                 if (this.Request.IsAuthenticated)
                 {
-
-                    //  return this.RedirectToLocal(returnUrl);
+                    var ClientId = "1082440138378-3pfpkbpb0lbg64uq99rn9ll7mhdkj90f.apps.googleusercontent.com";
+                    var url = "http://localhost:51065/Authentication/Login";
+                    var response1 = GoogleAuth.GetAuthUrl(ClientId, url);
+                    ViewBag.response1 = response1;
                 }
             }
             catch (Exception ex)
@@ -131,7 +134,6 @@ namespace AUST_BUDDY_WEB.Controllers
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
                 var a = await auth.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password, model.FullName, true);
                 System.Diagnostics.Debug.WriteLine("After create user");
-                Console.WriteLine("a");
                 ModelState.AddModelError(string.Empty, "Please Verify your email then login Please.");
                 if (ModelState.IsValid)
                 {
@@ -163,8 +165,6 @@ namespace AUST_BUDDY_WEB.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            ModelState.AddModelError(string.Empty, "hell");
-
             Session["Email"] = "";
             Session.Abandon();
             FormsAuthentication.SignOut();

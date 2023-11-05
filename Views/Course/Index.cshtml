@@ -1,4 +1,4 @@
-﻿
+﻿@model AUST_BUDDY_WEB.Models.PlaylistDetails
 @{ ViewBag.Title = "Course"; }
 
 
@@ -10,27 +10,26 @@
     </div>
 }
 
-@model IEnumerable<AUST_BUDDY_WEB.Models.Course>
 
 @* <a href="@Url.Action("add", "course" )" class="btn btn-primary btn-lg btn-block">Add Course</a> *@
 @* <a href="@Url.Action("AddPlaylist", "course" )" class="btn btn-primary btn-lg btn-block">Add Playlist</a> *@
 @if (Session["Email"] != null)
 {
-<a href="@Url.Action("playlists", "course")" class="btn btn-primary btn-lg btn-block">View Playlists</a>
+    <a href="@Url.Action("Playlists", "Course")" class="btn btn-primary btn-lg btn-block">View Playlists</a>
 
-<section>
-    <div class="container">
-        <div class="row justify-content-center " style="padding:2rem;">
-            <a href="@Url.Action("choose", "course", new { semester = 1 })" class="btn btn-primary btn-sq-responsive">First Semester</a>
-            <a href="@Url.Action("choose", "course", new { semester = 2 })" class="btn btn-primary btn-sq-responsive">Second Semester</a>
-            <a href="@Url.Action("choose", "course", new { semester = 3 })" class="btn btn-primary btn-sq-responsive">Third Semester</a>
-            <a href="@Url.Action("choose", "course", new { semester = 4 })" class="btn btn-primary btn-sq-responsive">Fourth Semester</a>
-            <a href="@Url.Action("choose", "course", new { semester = 5 })" class="btn btn-primary btn-sq-responsive">Fifth Semester</a>
-            <a href="@Url.Action("choose", "course", new { semester = 6 })" class="btn btn-primary btn-sq-responsive">Sixth Semester</a>
-            <a href="@Url.Action("choose", "course", new { semester = 7 })" class="btn btn-primary btn-sq-responsive">Seventh Semester</a>
-            <a href="@Url.Action("choose", "course", new { semester = 8 })" class="btn btn-primary btn-sq-responsive">Eighth Semester</a>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center " style="padding:2rem;">
+                <a href="@Url.Action("choose", "course", new { semester = 1 })" class="btn btn-primary btn-sq-responsive">First Semester</a>
+                <a href="@Url.Action("choose", "course", new { semester = 2 })" class="btn btn-primary btn-sq-responsive">Second Semester</a>
+                <a href="@Url.Action("choose", "course", new { semester = 3 })" class="btn btn-primary btn-sq-responsive">Third Semester</a>
+                <a href="@Url.Action("choose", "course", new { semester = 4 })" class="btn btn-primary btn-sq-responsive">Fourth Semester</a>
+                <a href="@Url.Action("choose", "course", new { semester = 5 })" class="btn btn-primary btn-sq-responsive">Fifth Semester</a>
+                <a href="@Url.Action("choose", "course", new { semester = 6 })" class="btn btn-primary btn-sq-responsive">Sixth Semester</a>
+                <a href="@Url.Action("choose", "course", new { semester = 7 })" class="btn btn-primary btn-sq-responsive">Seventh Semester</a>
+                <a href="@Url.Action("choose", "course", new { semester = 8 })" class="btn btn-primary btn-sq-responsive">Eighth Semester</a>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 }
