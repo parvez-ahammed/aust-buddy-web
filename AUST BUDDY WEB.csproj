@@ -443,7 +443,6 @@
     <Compile Include="Models\YouTubeVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartUp.cs" />
-    <Content Include="Code2Night.jpeg" />
     <Content Include="Views\Announcement\Details.cshtml" />
     <None Include="Views\Privacy\Index.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />

@@ -35,7 +35,7 @@ namespace AUST_BUDDY_WEB.Controllers
                     var ClientId = "1082440138378-3pfpkbpb0lbg64uq99rn9ll7mhdkj90f.apps.googleusercontent.com";
                     var url = "http://localhost:51065/Authentication/Login";
                     var response1 = GoogleAuth.GetAuthUrl(ClientId, url);
-                    ViewBag.response1 = response1;
+                    ViewBag.response1 = response1;//implementing sign in with Google
                 }
             }
             catch (Exception ex)
