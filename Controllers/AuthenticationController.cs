@@ -9,6 +9,16 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using GoogleAuthentication.Services;
+using RestSharp;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using Microsoft.Owin.Security.Cookies;
+using Google.Apis.Auth.OAuth2;
+using AUST_BUDDY_WEB.Models;
+using Microsoft.Ajax.Utilities;
+using FirebaseAdmin.Auth;
+
 namespace AUST_BUDDY_WEB.Controllers
 {
     public class AuthenticationController : Controller
@@ -17,10 +27,68 @@ namespace AUST_BUDDY_WEB.Controllers
         public static string ApiKey = "AIzaSyDUqXI4YslT5jjdYCnS4EgXSvuzpg0xnyk";
 
         public static string Bucket = "asp-mvc-with-android.appspot.com";
+
         public ActionResult Index()
         {
-            
+
             return View();
+
+        }
+        private string GetAccessToken(string code, string clientId, string clientSecret, string redirectUri)
+        {
+            var client = new RestClient("https://www.googleapis.com/oauth2/v4/token");
+            var request = new RestRequest(Method.POST);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            request.AddParameter("grant_type", "authorization_code");
+            request.AddParameter("code", code);
+            request.AddParameter("redirect_uri", redirectUri);
+            request.AddParameter("client_id", clientId);
+            request.AddParameter("client_secret", clientSecret);
+
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+            System.Diagnostics.Debug.WriteLine("content: " + content.ToString());
+            
+                var tokenResponse = JObject.Parse(content);
+                return tokenResponse["access_token"]?.ToString();
+            
+            
+                
+        }
+        private JObject GetUserInfo(string token)
+        {
+            var client = new RestClient("https://www.googleapis.com/oauth2/v1/userinfo");
+            client.AddDefaultHeader("Authorization", "Bearer " + token);
+
+            var request = new RestRequest(Method.GET);
+
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+            return JObject.Parse(content);
+        }
+        public  ActionResult googleLoginCallback(string code)
+        {
+
+            Session["Email"] = "";
+            var client_id = "1082440138378-ilf868uelbccv425d0b22j16fbhmu27b.apps.googleusercontent.com";
+            var client_secret = "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";
+            var redirect_uri = "http://localhost:51065/Authentication/googleLoginCallback";
+            var token = GetAccessToken(code, client_id, client_secret, redirect_uri);
+            System.Diagnostics.Debug.WriteLine("Token::: " + token.ToString());
+            System.Diagnostics.Debug.WriteLine("Email::: " + Session["Email"].ToString());
+            if (!string.IsNullOrEmpty(token))
+            {
+                // Use the access token to fetch user information
+                var userInfo = GetUserInfo(token);
+                Session["Email"] = userInfo["email"].ToString();
+                System.Diagnostics.Debug.WriteLine("userInfo content: " + userInfo.ToString());
+
+                return RedirectToAction("Index", "Authentication");
+            }
+            else
+            {
+              return   RedirectToAction("Registration", "Authentication");
+            }
         }
 
         [AllowAnonymous]
@@ -31,11 +99,9 @@ namespace AUST_BUDDY_WEB.Controllers
             {
                 // Verification.
                 if (this.Request.IsAuthenticated)
+
                 {
-                    var ClientId = "1082440138378-3pfpkbpb0lbg64uq99rn9ll7mhdkj90f.apps.googleusercontent.com";
-                    var url = "http://localhost:51065/Authentication/Login";
-                    var response1 = GoogleAuth.GetAuthUrl(ClientId, url);
-                    ViewBag.response1 = response1;//implementing sign in with Google
+
                 }
             }
             catch (Exception ex)
@@ -47,6 +113,7 @@ namespace AUST_BUDDY_WEB.Controllers
             // Info.
             return this.View();
         }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> Login(AUST_BUDDY_WEB.Models.UserLogin model)
