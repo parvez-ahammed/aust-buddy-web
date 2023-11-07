@@ -31,9 +31,11 @@
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", style = "margin-top:2rem;" })
+                                @if(Model.Email == null) { 
+                                @Html.TextBoxFor(model => model.Email,new { @class = "form-control", style = "margin-top:2rem;" });
                                 <label class="form-label" for="email" style="padding-top:1rem;">Email address</label>
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                }
                             </div>
 
                             <!-- Password input -->
@@ -65,8 +67,9 @@
                             <button type="submit" class="btn btn-primary btn-block mb-4">
                                 Login
                             </button>
-                            <p class="mb-5">Don't have an account?  <a class="fw-bold " style="color:#16A34A ;" href="@Url.Action("registration","authentication")">Register </a> </p>
-                            <a class="btn btn-default" href="https://accounts.google.com/o/oauth2/auth?client_id=1082440138378-3pfpkbpb0lbg64uq99rn9ll7mhdkj90f.apps.googleusercontent.com&redirect_uri=http://localhost:51065/Authentication/Login&scope=https://www.googleapis.com/auth/userinfo.profile&response_type=code&state=asdafwswdwefwsdg">Google Log in</a>
+                            <p class="mb-5">Don't have an account?  <a class="fw-bold " style="color:#16A34A ;" href="@Url.Action("registration", "Authentication")">Register </a> </p>
+                            <a class="btn btn-default" href="https://accounts.google.com/o/oauth2/auth?client_id=1082440138378-ilf868uelbccv425d0b22j16fbhmu27b.apps.googleusercontent.com&redirect_uri=http://localhost:51065/Authentication/googleLoginCallback&scope=email%20profile&response_type=code">Google Log in</a>
+
                         }
 
                     </div>
@@ -76,9 +79,10 @@
 
     </section>
     <!-- Section: Design Block -->
+    <!--
+                                    <a class="btn btn-default" href="https://accounts.google.com/o/oauth2/auth?client_id=1082440138378-ilf868uelbccv425d0b22j16fbhmu27b.apps.googleusercontent.com&redirect_uri=http://localhost:51065/Authentication/googleLoginCallback&scope=https://www.googleapis.com/auth/userinfo.profile&response_type=code&scope=email profile">Google Log in</a>
 
-
-
+        -->
 
 
 </main>

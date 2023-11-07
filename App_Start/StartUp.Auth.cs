@@ -20,6 +20,13 @@ namespace AUST_BUDDY_WEB.App_Start
 			});
 
 			
-		}
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "1082440138378-ilf868uelbccv425d0b22j16fbhmu27b.apps.googleusercontent.com",
+                ClientSecret = "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",
+                SignInAsAuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+
+            });
+        }
 	}
 }
