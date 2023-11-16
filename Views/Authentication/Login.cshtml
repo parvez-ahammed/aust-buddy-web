@@ -31,11 +31,10 @@
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                @if(Model.Email == null) { 
                                 @Html.TextBoxFor(model => model.Email,new { @class = "form-control", style = "margin-top:2rem;" });
                                 <label class="form-label" for="email" style="padding-top:1rem;">Email address</label>
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                                }
+                                
                             </div>
 
                             <!-- Password input -->
