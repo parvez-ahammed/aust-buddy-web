@@ -12,6 +12,3 @@
 <a target="_blank" href="https://github.com/piru72/AUST_BUDDY/network/members"><img src="https://img.shields.io/github/forks/piru72/AUST_BUDDY" alt="forks"/></a>
 <a target="_blank" href="https://github.com/piru72/AUST_BUDDY/stargazers"><img src="https://img.shields.io/github/stars/piru72/AUST_BUDDY" alt="stars"/></a>
 <a target="_blank" href="https://github.com/piru72/AUST_BUDDY/issues"><img src="https://img.shields.io/github/issues/piru72/AUST_BUDDY" alt="issues"/></a>
-
-## [Project Proposal](https://docs.google.com/document/d/12CXztwjrIJd7QOpV3nL1Zi-9QiyS5IiKwkkKdMAgng0/edit?usp=sharing)
-## [UI](https://www.behance.net/gallery/170334575/UI-Case-Study-AUST-Buddy)
